@@ -102,12 +102,12 @@ def test_outage_table_adds_cached_online_rows(tmp_path):
     assert ("error-ttl5", "offline", "during") not in rows  # online-only runs
     body = [line for line in (out / "outage.tex").read_text().splitlines() if line.endswith(r"\\")][1:]
     assert body == [
-        r"error & offline & 100.0 & -- & 0.00 \\",
-        r"error & online ($T{=}0$) & 0.0 & 2.0 & 0.40 \\",
-        r"error & online ($T{=}5$\,s) & 20.0 & 2.0 & 0.40 \\",
-        r"error & online ($T{=}30$\,s) & 50.0 & 2.0 & 0.40 \\",
-        r"hang & offline & 100.0 & -- & 0.00 \\",
-        r"hang & online & 5.0 & 2.0 & 0.40 \\",
+        r"error & offline & 100.0 & -- \\",
+        r"error & online ($T{=}0$) & 0.0 & 2.0 \\",
+        r"error & online ($T{=}5$\,s) & 20.0 & 2.0 \\",
+        r"error & online ($T{=}30$\,s) & 50.0 & 2.0 \\",
+        r"hang & offline & 100.0 & -- \\",
+        r"hang & online & 5.0 & 2.0 \\",
     ]
 
 
@@ -185,6 +185,7 @@ def test_task_runs_get_their_own_table_and_stay_out_of_the_paper_tables(tmp_path
     phases = {r["config"] for r in _read(out / "phases.csv")}
     assert phases == {"error"}  # task runs never reach the outage / latency / slow tables
     assert "tasks" not in (out / "outage.tex").read_text()
+    assert "Recovery" not in (out / "outage.tex").read_text()  # always 0 s; stated in the text
 
     rows = {(r["config"], r["mode"], r["phase"]): r for r in _read(out / "tasks.csv")}
     online = rows[("tasks-error", "online", "during")]

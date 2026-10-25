@@ -30,7 +30,7 @@ ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "evaluation" / "results"
 TABLES = ROOT / "evaluation" / "tables"
 MODES = ("offline", "online")
-GEN_LAG_LIMIT_MS = 5.0  # a run is valid only if gen lag p99 stays at a few ms
+GEN_LAG_LIMIT_MS = 5.0  # "a few milliseconds" (CLAUDE.md)
 RECOVERY_WINDOW_S = 10.0
 METRICS = ("success_rate", "p50_ms", "p95_ms", "p99_ms", "authz_p50_ms", "fail_p50_ms")
 # Agent-task runs (run_experiment.py --workload tasks): phases summarize tasks.
@@ -157,9 +157,13 @@ def fmt(v, digits: int = 2) -> str:
 
 
 def latex_outage(rows: list[dict]) -> str:
-    """Success rate during the fault and recovery time, per scenario and mode."""
-    lines = [r"\begin{tabular}{llrrr}", r"\toprule",
-             r"Fault & Mode & Success during (\%) & Time to refuse (ms) & Recovery (s) \\", r"\midrule"]
+    """Success rate during the fault and time to refuse, per scenario and mode.
+
+    Recovery time is left out: it was 0 s in every configuration, so the paper states it
+    in the text (it stays in phases.csv).
+    """
+    lines = [r"\begin{tabular}{llrr}", r"\toprule",
+             r"Fault & Mode & Success during (\%) & Time to refuse (ms) \\", r"\midrule"]
     by = {(r["config"], r["mode"], r["phase"]): r for r in rows}
     configs = {r["config"] for r in rows}
     for config in sorted(configs):
@@ -172,9 +176,9 @@ def latex_outage(rows: list[dict]) -> str:
                    (config, "online", r"online ($T{=}0$)" if ttls else "online")]
         entries += [(f"{config}-ttl{t}", "online", rf"online ($T{{=}}{t}$\,s)") for t in ttls]
         for key, mode, label in entries:
-            d, a = by[(key, mode, "during")], by.get((key, mode, "after"), {})
+            d = by[(key, mode, "during")]
             lines.append(f"{config} & {label} & {fmt(d['success_rate'] * 100, 1)} & "
-                         f"{fmt(d['fail_p50_ms'], 1)} & {fmt(a.get('recovery_s'), 2)} \\\\")
+                         f"{fmt(d['fail_p50_ms'], 1)} \\\\")
     lines += [r"\bottomrule", r"\end{tabular}", ""]
     return "\n".join(lines)
 
@@ -237,8 +241,9 @@ def latex_tasks(rows: list[dict]) -> str:
     """Agent tasks (delegate, then 5 requests) per fault: share served during the fault,
     and the cost of delegating and of a whole task before it (group tasks)."""
     lines = [r"\begin{tabular}{llrrrr}", r"\toprule",
-             r"Fault & Mode & Tasks done (\%) & Delegated (\%) & Delegation p50 (ms) & Task p50 (ms) \\",
-             r"& & \multicolumn{2}{c}{during the fault} & \multicolumn{2}{c}{before it} \\",
+             r"& & \multicolumn{2}{c}{During fault (\%)} & \multicolumn{2}{c}{p50 before (ms)} \\",
+             r"\cmidrule(lr){3-4}\cmidrule(lr){5-6}",
+             r"Fault & Mode & Done & Delegated & Delegate & Task \\",
              r"\midrule"]
     by = {(r["config"], r["mode"], r["phase"]): r for r in rows}
     for config in sorted({r["config"] for r in rows if not re.search(r"-ttl\d+$", r["config"])}):
