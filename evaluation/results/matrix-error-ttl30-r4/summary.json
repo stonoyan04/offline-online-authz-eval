@@ -1,0 +1,54 @@
+{
+  "online": {
+    "phases": [
+      {
+        "phase": "before",
+        "requests": 6626,
+        "success_rate": 1.0,
+        "p50_ms": 2.55,
+        "p95_ms": 4.687,
+        "p99_ms": 5.055,
+        "authz_p50_ms": 0.206,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 0.917,
+        "errors": {},
+        "mean_ms": 2.94
+      },
+      {
+        "phase": "during",
+        "requests": 4000,
+        "success_rate": 1.0,
+        "p50_ms": 2.547,
+        "p95_ms": 4.665,
+        "p99_ms": 5.049,
+        "authz_p50_ms": 0.206,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 0.91,
+        "errors": {},
+        "mean_ms": 2.929
+      },
+      {
+        "phase": "after",
+        "requests": 6374,
+        "success_rate": 1.0,
+        "p50_ms": 2.54,
+        "p95_ms": 4.656,
+        "p99_ms": 5.056,
+        "authz_p50_ms": 0.206,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 0.926,
+        "errors": {},
+        "mean_ms": 2.927
+      }
+    ],
+    "events": {
+      "fault_on": 38.226,
+      "fault_on_effective": 38.249,
+      "fault_off": 58.131,
+      "fault_off_effective": 58.154
+    }
+  }
+}

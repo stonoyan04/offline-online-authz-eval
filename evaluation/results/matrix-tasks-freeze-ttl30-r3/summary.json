@@ -1,0 +1,99 @@
+{
+  "online": {
+    "phases": [
+      {
+        "phase": "before",
+        "tasks": 600,
+        "task_success_rate": 1.0,
+        "delegation_success_rate": 1.0,
+        "delegate_p50_ms": 1.271,
+        "delegate_p99_ms": 1.731,
+        "task_p50_ms": 8.745,
+        "task_p99_ms": 10.077,
+        "send_lag_p99_ms": 1.13,
+        "errors": {}
+      },
+      {
+        "phase": "during",
+        "tasks": 800,
+        "task_success_rate": 0.0025,
+        "delegation_success_rate": 0.0025,
+        "delegate_p50_ms": 1.348,
+        "delegate_p99_ms": 1.348,
+        "task_p50_ms": 9.589,
+        "task_p99_ms": 9.589,
+        "send_lag_p99_ms": 1.505,
+        "errors": {
+          "ConnectError": 662,
+          "exchange_timeout": 136
+        }
+      },
+      {
+        "phase": "after",
+        "tasks": 800,
+        "task_success_rate": 0.9975,
+        "delegation_success_rate": 0.9975,
+        "delegate_p50_ms": 1.47,
+        "delegate_p99_ms": 2.941,
+        "task_p50_ms": 8.978,
+        "task_p99_ms": 13.408,
+        "send_lag_p99_ms": 1.199,
+        "errors": {
+          "ConnectError": 2
+        }
+      }
+    ],
+    "requests": [
+      {
+        "phase": "before",
+        "requests": 3000,
+        "success_rate": 1.0,
+        "p50_ms": 1.055,
+        "p95_ms": 2.259,
+        "p99_ms": 2.49,
+        "authz_p50_ms": 0.136,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 0.0,
+        "errors": {},
+        "mean_ms": 1.266
+      },
+      {
+        "phase": "during",
+        "requests": 10,
+        "success_rate": 1.0,
+        "p50_ms": 1.151,
+        "p95_ms": 2.402,
+        "p99_ms": 2.402,
+        "authz_p50_ms": 0.134,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 0.0,
+        "errors": {},
+        "mean_ms": 1.379
+      },
+      {
+        "phase": "after",
+        "requests": 3990,
+        "success_rate": 1.0,
+        "p50_ms": 1.066,
+        "p95_ms": 2.596,
+        "p99_ms": 3.434,
+        "authz_p50_ms": 0.139,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 0.0,
+        "errors": {},
+        "mean_ms": 1.303
+      }
+    ],
+    "events": {
+      "chain_depth": 0,
+      "token_bytes": 43,
+      "fault_on": 20.051,
+      "fault_on_effective": 20.051,
+      "fault_off": 40.026,
+      "fault_off_effective": 40.026
+    }
+  }
+}

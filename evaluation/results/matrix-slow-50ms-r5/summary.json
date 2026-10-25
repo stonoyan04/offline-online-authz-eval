@@ -1,0 +1,106 @@
+{
+  "offline": {
+    "phases": [
+      {
+        "phase": "before",
+        "requests": 3000,
+        "success_rate": 1.0,
+        "p50_ms": 2.398,
+        "p95_ms": 4.026,
+        "p99_ms": 5.531,
+        "authz_p50_ms": 0.356,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 0.813,
+        "errors": {},
+        "mean_ms": 2.588
+      },
+      {
+        "phase": "during",
+        "requests": 4000,
+        "success_rate": 1.0,
+        "p50_ms": 2.456,
+        "p95_ms": 4.17,
+        "p99_ms": 5.488,
+        "authz_p50_ms": 0.405,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 0.695,
+        "errors": {},
+        "mean_ms": 2.584
+      },
+      {
+        "phase": "after",
+        "requests": 4000,
+        "success_rate": 1.0,
+        "p50_ms": 2.462,
+        "p95_ms": 4.074,
+        "p99_ms": 5.56,
+        "authz_p50_ms": 0.407,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 0.702,
+        "errors": {},
+        "mean_ms": 2.49
+      }
+    ],
+    "events": {
+      "fault_on": 20.065,
+      "fault_on_effective": 20.091,
+      "fault_off": 40.05,
+      "fault_off_effective": 40.072
+    }
+  },
+  "online": {
+    "phases": [
+      {
+        "phase": "before",
+        "requests": 3000,
+        "success_rate": 1.0,
+        "p50_ms": 2.715,
+        "p95_ms": 2.976,
+        "p99_ms": 3.298,
+        "authz_p50_ms": 1.227,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 0.44,
+        "errors": {},
+        "mean_ms": 2.714
+      },
+      {
+        "phase": "during",
+        "requests": 4000,
+        "success_rate": 1.0,
+        "p50_ms": 52.942,
+        "p95_ms": 54.105,
+        "p99_ms": 55.361,
+        "authz_p50_ms": 51.392,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 0.547,
+        "errors": {},
+        "mean_ms": 52.891
+      },
+      {
+        "phase": "after",
+        "requests": 4000,
+        "success_rate": 1.0,
+        "p50_ms": 2.868,
+        "p95_ms": 3.281,
+        "p99_ms": 4.267,
+        "authz_p50_ms": 1.315,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 0.402,
+        "errors": {},
+        "mean_ms": 3.083
+      }
+    ],
+    "events": {
+      "fault_on": 20.075,
+      "fault_on_effective": 20.092,
+      "fault_off": 40.05,
+      "fault_off_effective": 40.067
+    }
+  }
+}

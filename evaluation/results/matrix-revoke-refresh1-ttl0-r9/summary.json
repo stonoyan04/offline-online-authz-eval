@@ -1,0 +1,80 @@
+{
+  "offline": {
+    "phases": [
+      {
+        "phase": "before",
+        "requests": 4069,
+        "success_rate": 1.0,
+        "p50_ms": 2.516,
+        "p95_ms": 4.376,
+        "p99_ms": 6.223,
+        "authz_p50_ms": 0.411,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 0.75,
+        "errors": {},
+        "mean_ms": 2.672
+      },
+      {
+        "phase": "after_revoke",
+        "requests": 2331,
+        "success_rate": 0.0545,
+        "p50_ms": 2.49,
+        "p95_ms": 4.087,
+        "p99_ms": 5.279,
+        "authz_p50_ms": 0.409,
+        "fail_p50_ms": 2.313,
+        "fail_p99_ms": 5.193,
+        "send_lag_p99_ms": 0.754,
+        "errors": {
+          "invalid_token": 2204
+        },
+        "mean_ms": 2.56
+      }
+    ],
+    "events": {
+      "fault_on": 20.395,
+      "fault_on_effective": 20.418,
+      "revocation_lag_s": 0.562
+    }
+  },
+  "online": {
+    "phases": [
+      {
+        "phase": "before",
+        "requests": 4069,
+        "success_rate": 1.0,
+        "p50_ms": 2.809,
+        "p95_ms": 2.968,
+        "p99_ms": 3.076,
+        "authz_p50_ms": 1.276,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 0.392,
+        "errors": {},
+        "mean_ms": 2.818
+      },
+      {
+        "phase": "after_revoke",
+        "requests": 2331,
+        "success_rate": 0.0013,
+        "p50_ms": 2.546,
+        "p95_ms": 3.049,
+        "p99_ms": 3.049,
+        "authz_p50_ms": 1.198,
+        "fail_p50_ms": 2.734,
+        "fail_p99_ms": 2.967,
+        "send_lag_p99_ms": 0.407,
+        "errors": {
+          "invalid_token": 2328
+        },
+        "mean_ms": 2.659
+      }
+    ],
+    "events": {
+      "fault_on": 20.345,
+      "fault_on_effective": 20.362,
+      "revocation_lag_s": 0.003
+    }
+  }
+}

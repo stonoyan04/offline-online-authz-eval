@@ -1,0 +1,38 @@
+{
+  "online": {
+    "phases": [
+      {
+        "phase": "steady",
+        "tasks": 2200,
+        "task_success_rate": 1.0,
+        "delegation_success_rate": 1.0,
+        "delegate_p50_ms": 1.275,
+        "delegate_p99_ms": 1.421,
+        "task_p50_ms": 9.704,
+        "task_p99_ms": 10.469,
+        "send_lag_p99_ms": 2.109,
+        "errors": {}
+      }
+    ],
+    "requests": [
+      {
+        "phase": "steady",
+        "requests": 11000,
+        "success_rate": 1.0,
+        "p50_ms": 1.048,
+        "p95_ms": 2.244,
+        "p99_ms": 2.349,
+        "authz_p50_ms": 0.136,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 0.0,
+        "errors": {},
+        "mean_ms": 1.271
+      }
+    ],
+    "events": {
+      "chain_depth": 0,
+      "token_bytes": 43
+    }
+  }
+}

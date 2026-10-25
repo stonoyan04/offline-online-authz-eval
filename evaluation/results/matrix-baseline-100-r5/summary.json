@@ -1,0 +1,40 @@
+{
+  "offline": {
+    "phases": [
+      {
+        "phase": "steady",
+        "requests": 5500,
+        "success_rate": 1.0,
+        "p50_ms": 3.923,
+        "p95_ms": 6.534,
+        "p99_ms": 7.314,
+        "authz_p50_ms": 0.452,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 2.081,
+        "errors": {},
+        "mean_ms": 4.339
+      }
+    ],
+    "events": {}
+  },
+  "online": {
+    "phases": [
+      {
+        "phase": "steady",
+        "requests": 5500,
+        "success_rate": 1.0,
+        "p50_ms": 4.269,
+        "p95_ms": 5.577,
+        "p99_ms": 6.443,
+        "authz_p50_ms": 1.827,
+        "fail_p50_ms": null,
+        "fail_p99_ms": null,
+        "send_lag_p99_ms": 0.929,
+        "errors": {},
+        "mean_ms": 4.431
+      }
+    ],
+    "events": {}
+  }
+}
